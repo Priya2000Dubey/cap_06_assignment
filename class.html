@@ -1,0 +1,222 @@
+<!-- =Nested Object = Object in Object.
+let obj = {
+    name: "Priya",
+    age: 23,
+    address: {
+        city: "Gangapur",
+        pin: 322201,
+        anotherObj: {
+
+        }
+    }
+}
+
+=this = If we don't know something just do console.log. -->
+        <!-- This refers to its parents, but the parents should be an object.
+1.Alone, this refers to global object.
+  console.log(this);
+
+  2.In the function method, this refers to owner object.
+let person = {
+    name: "Priya",
+    age: 23,
+    print: function(){
+        console.log(this); //Here this will refer to owner object.
+    },
+    address: {
+        city: "Gangapur",
+        pin: 322201,
+        printAgain: function(){
+            console.log(this);
+        }
+    }
+  };
+       person.print() -->
+  <!-- person.address.printAgain(); -->
+<!-- 3.In the function, this refers to global object. When we console this, it will find it's owner object, it will not find any object, so it will go for global object. -->
+  <!-- function print(){
+    let a = 10;
+    console.log(this);
+  }
+  print();
+Q.What is global/window object?
+Ans.= 1.It is an object.
+      2.Its value depends on the enviroment on which we are running our code.
+      3.Window object will be different for each browser, for terminal it is different and for browser it is different.
+
+Q.Why we need window object? -->
+
+<!-- =use strict = use strict is like mom of JavaScript, who will take care about correct syntax, method. It will prevent us from the bugs.
+              It sets some rules in your code, so that you cannot do any mistake.
+              It stop wrong things or bugs.
+
+The syntax is "use strict";
+
+Q.Why do we need this keyword?
+Ans.= 
+Note= 1.In the console we use plus to concatinate, but we can also use ${} sign to do that.
+      Ex= console.log("age of"+name+"is"+age);
+          console.log("age of ${name} is ${age}");
+For key you need to write . but this . is only applicable in object, so we need to write object name.key.
+2.Variable = Variable is a thing that store something, it's container like thing.
+
+
+let person = {
+    name: "Priya",
+    age: 23,
+    address: {
+        city: "Delhi",
+        pin: 322201,
+    },
+    printInfo: function(){
+        console.log("Name: ${this.name} Age: ${this.age} City: ${this.address.city}");
+    },
+}
+person.printInfo();
+
+In the function or function method, unless or untill you execute that thing, it doesn't have any sense. -->
+
+
+<!-- let accountInfo = {
+    name: "Aadhya",
+    mob: 1234567890,
+    ac_no: 124587826454588,
+    branch:"Delhi",
+    balance: 9634755875,
+}
+
+let accountInfoP2 = {
+    name: "Sanskriti",
+    mob: 12345699990,
+    ac_no: 12458782648585788,
+    branch:"Kota",
+    balance: 9634755577,
+}
+
+console.log(accountInfoP2.balance);
+
+=DRY= Do not repeat yourself.
+function createAccount(name, mob, ac_no, branch, balance){
+    let obj = {
+        name: name,
+        mob: mob,
+        ac_no: ac_no,
+        branch: branch,
+        balance: balance,
+    }
+    return obj:
+}
+let p3 = createAccount("abc", 1236555, 57887956, "Branch", 5587858)
+console.log(p3);
+
+let p4 = createAccount("def", 54487, 6684845, "Branch", 544545)
+console.log(p4); -->
+
+<!-- = Call, Apply and Bind = jb ham parent object ki wajay kisi aur object ko parent show karwana chaahe,
+                         to ham call ka use karte hain.
+This method is only available in fuction.
+
+1.Call= If we want to temporarily trasfer function from the parent object, to another object, we use call. 
+        We cannot reuse call and cannot store in variable, to sove this we use Bind. call execute immediately, we cannot reuse it.
+let person1 = {
+    name: "Bipin",
+    age: 22,
+};
+let person2 = {
+    name: "Ritesh",
+    age: 21,
+};
+
+function print(){
+    console.log(this);
+}
+print.call(person1);   You need to tell where it should go, so we are mentioning person1 here. -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call</title>
+</head>
+<body>
+    <button>Call</button>
+</body>
+<script>
+    let person1 = {
+        name: "Bipin",
+        age: 22,
+    }
+    let person2 = {
+        name: "Ritesh",
+        age: 21,
+    }
+    function print(city, pin) {
+        console.log(`Name: ${this.name} Age: ${this.age} City: ${city} Pincode: ${pin}`);
+    }
+    print.call(person1, "Delhi", 135645);
+    print.call(person2, "Bhopal", 856478);  Here you can write reference object and normal params.
+</script>
+</html> -->
+
+<!-- 2.Apply=
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply</title>
+</head>
+<body>
+    <button>Apply</button>
+</body>
+<script>
+    let person1 ={
+        name: "Bipin",
+        age: 22,
+    };
+    let person2 ={
+        name: "Ritik",
+        age: 21,
+    }
+    function print(city, pin){
+        console.log(`Name: ${this.name} Age: ${this.age} City: ${city} Pincode: ${pin}`);
+    }
+    print.apply(person1, ["Delhi",123]);
+    print.apply(person2, ["Bhopal",458])
+</script>
+</html> -->
+
+
+<!-- =Bind= bind does not execute immediately, so we can store it as a variable and can reuse. -->
+=Constructor Function= When you write constructor function, there is one condition, your need to write it's name first letter in capital letter.
+
+function createAccount(name, mob, ac_no, branch, balance){
+    let obj = {
+        name: name,
+        mob: mob,
+        ac_no: ac_no,
+        branch: branch,
+        balance: balance,
+    }
+    return obj:
+}
+let p3 = createAccount("abc", 1236555, 57887956, "Branch", 5587858)
+console.log(p3);
+Instead of this you can use constructor function.
+
+
+function CreateAccount(name, mob, ac_no, branch, balance) {
+    this.name = name;
+    this.mob = mob;
+    this.ac_no = ac_no;
+    this.branch = branch;
+    this.balance = balance;
+}
+here, this is refering to global object and return is missing. In this condition what we can do, so this not refer to global object and return value, 
+for this purpose we have new keyword.
+
+let p3 = new CreateAccount("abc", 1236555, 57887956, "Branch", 5587858);
+console.log(p3);
+

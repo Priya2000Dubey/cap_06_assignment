@@ -1,0 +1,142 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button></button>
+</body>
+</html>
+<script>
+var person = {
+    name: "Priya",
+    myName: function(){
+        console.log(person.name);
+    }
+}
+person.myName()
+
+var person2={
+    name: "Rahul",
+    myName: function(){
+        console.log(person2.name);
+    }
+}
+person2.myName()
+</script> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button></button>
+</body>
+</html>
+<script>
+    function Player(n,t)
+    {
+        this.name = n
+        this.team = t
+    }
+    let myPlayer = new Player('Messi','Barcelona')
+    console.log("myPlayer:", myPlayer)
+    let myPlayer2 = new Player('Ronaldo','Juventus') 
+    
+    console.log("myPlayer2:",myPlayer2)
+</script> -->
+
+<!-- =Call=
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>Constructor Function</button>
+</body>
+</html>
+<script>
+    let person1 = {
+    name: "Bipin",
+    age: 22,
+};
+let person2 = {
+    name: "Ritesh",
+    age: 21,
+};
+
+function print(){
+    console.log(this);
+}
+print.call(person1);
+print.call(person2);
+</script> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>Call</button>
+</body>
+</html>
+
+<script>
+    let person1 = {
+        name: "Bipin",
+        age: 22,
+    };
+    let person2 = {
+        name: "Ritesh",
+        age:21,
+    };
+    
+    function print(city, pin) {
+        console.log(`Name: ${this.name} Age: ${this.age} City: ${city} Pincode: ${pin}`)
+    }
+    print.call(person1, "Delhi", 589645);
+    print.call(person2, "Bhopal", 258964);
+</script> -->
+
+
+=apply=
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply</title>
+</head>
+<body>
+    <button>Apply</button>
+</body>
+<script>
+    let person1 ={
+        name: "Bipin",
+        age: 22,
+    };
+    let person2 ={
+        name: "Ritik",
+        age: 21,
+    }
+    function print(city, pin){
+        console.log(`Name: ${this.name} Age: ${this.age} City: ${city} Pincode: ${pin}`);
+    }
+    print.apply(person1, ["Delhi",123]);
+    print.apply(person2, ["Bhopal",458])
+</script>
+</html>
+
